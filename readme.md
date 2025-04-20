@@ -243,96 +243,30 @@ _Relationship Type:_ `One-to-One (per Team per Season)`
 
 ## Data Transformation
 
-The required spark libraries are imported, after which a spark session is created usinge the example code;
-```
- val NBA_ = SparkSession.builder()
-      .appName("nbaspark_")
-      .master("local[*]")
-      .getOrCreate()
-```
+This project utilizes Apache Spark for data transformation. The following steps outline the methodology used:
 
-A schema type is created for each column of the data;
-```
-val schema_players = StructType(List(StructField("_c0", IntegerType),                                                     
-      StructField("Rk", IntegerType), StructField("Player", StringType),
-      StructField("Age", IntegerType), StructField("Team", StringType),
-      StructField("Pos", StringType), StructField("G", IntegerType),
-      StructField("GS", IntegerType), StructField("MP", FloatType),
-      StructField("FG", FloatType), StructField("FGA", FloatType),
-      StructField("FG%", FloatType), StructField("3P", FloatType),
-      StructField("3PA", FloatType), StructField("3P%", FloatType),
-      StructField("2P", FloatType), StructField("2PA", FloatType),
-      StructField("2P%", FloatType), StructField("eFG%", FloatType),
-      StructField("FT", FloatType), StructField("FTA", FloatType),
-      StructField("FT%", FloatType), StructField("ORB", FloatType),
-      StructField("DRB", FloatType), StructField("TRB", FloatType), StructField("AST", FloatType),
-      StructField("STL", FloatType), StructField("BLK", FloatType), StructField("TOV", FloatType),
-      StructField("PF", FloatType), StructField("PTS", FloatType), StructField("Awards", StringType), StructField("Year", IntegerType)))
-```
-Data is loaded into spark, where a dataframe is created. The predefined schema is set to this dataframe;
+### Step 1: Spark Session Creation
+A Spark session was created using the SparkSession.builder API, configuring the application name and other necessary settings.
 
-```
-val First = NBA_.read                                                                               
-      .format("csv")
-      .option("header", true)
-      .schema(schema_players)
-      .option("path", "C:/Users/LATEEF/Downloads/NBAproject/players.csv")
-      .load()
+### Step 2: Schema Definition
+A predefined schema was defined using the ```StructType``` and ```StructField``` APIs, specifying the column names and data types.
 
-```
-Necessary transformations were then carried out. Null values were replaced with ratio of two other columns based on relationship. Renamed and drop columns;
-```
-val replaced_null = First.withColumn("2P%", when(col("2P%").isNull, col("2P")*100.0/col("2PA"))    
-      .otherwise(col("2P%")))
-      .withColumn("3P%", when(col("3P%").isNull, col("3P")*100.0/col("3PA")).otherwise(col("3P%")))
-      .withColumn("FT%", when(col("FT%").isNull, col("FT")*100.0/col("FTA")).otherwise(col("FT%")))
-      .withColumn("Awards", when(col("Awards").isNull, "none").otherwise(col("Awards")))
-      .drop(col("eFG%"))
-    val rename_columns = replaced_null.withColumnRenamed("Rk","rank")
-      .withColumnRenamed("Player", "player_name")
-      .withColumnRenamed("Age", "age")
-      .withColumnRenamed("Team", "team")
-      .withColumnRenamed("Pos", "position")
-      .withColumnRenamed("G", "games")
-      .withColumnRenamed("GS","games_started")
-      .withColumnRenamed("MP","minutes_played")
-      .withColumnRenamed("FG","field_goals_made")
-      .withColumnRenamed("FGA","field_goals_attempts")
-      .withColumnRenamed("FG%","field_goal_percentage")
-      .withColumnRenamed("3P", "three_point_field_goals_made")
-      .withColumnRenamed("3PA", "three_point_field_goals_attempts")
-      .withColumnRenamed("3P%", "three_point_percentage")
-      .withColumnRenamed("2P", "two_point_field_goals_made")
-      .withColumnRenamed("2PA", "two_point_field_goal_attempts")
-      .withColumnRenamed("2P%", "two_point_percentage")
-      .withColumnRenamed("FT", "free_throw_made")
-      .withColumnRenamed("FTA", "free_throw_attempts")
-      .withColumnRenamed("FT%", "free_throw_percentage")
-      .withColumnRenamed("ORB", "offensive_rebound")
-      .withColumnRenamed("DRB","defensive_rebound")
-      .withColumnRenamed("TRB","total_rebounds")
-      .withColumnRenamed("AST","assists")
-      .withColumnRenamed("STL","steals")
-      .withColumnRenamed("BLK","blocks")
-      .withColumnRenamed("TOV","turnovers")
-      .withColumnRenamed("PF","personal_fouls")
-      .withColumnRenamed("PTS","points")
-    val Players = rename_columns.filter(col("player_name") =!= "player").drop(col("_c0"))
-```
-Data is then written into postgres:
-```
-val url1 = "jdbc:postgresql://localhost:5432/NBA"                                
-        val table1 = "Players"
-        val props1 = new java.util.Properties()
-        props1.setProperty("user", "postgres")
-        props1.setProperty("password", "######")
-        props1.setProperty("driver", "org.postgresql.Driver")
+### Step 3: Data Loading
+The data was loaded into a Spark DataFrame using the ```spark.read``` API, specifying the data source and other necessary options.
 
-        Players.write.mode("append").jdbc(url1, table1, props1)
-```
+### Step 4: Applying Schema
+The predefined schema was applied to the loaded data using the spark.read.schema API, ensuring data consistency and correctness.
 
+### Step 5: Transformations
+The following transformations were applied to the data:
 
+- Renaming Columns: Column names were renamed using the ```.withColumnRenamed``` API to ensure clarity and consistency.
+- Handling Null Values: Null values in a specific column were filled with the ratio of two other columns that it is a result of, using the when and otherwise APIs.
+- Dropping Unnecessary Columns: A column that was not needed for further analysis was dropped using the drop API.
+- Filtering Unwanted Rows: Unwanted rows were filtered out using the filter API, ensuring data quality and relevance.
 
+### Step 6: Writing to Postgres
+The transformed data was written to a Postgres database using the ```write.jdbc(:postgresql://...)``` API, specifying the database connection properties and table name.
 
-
-
+### Step 7: Final Output
+The data is now stored in the Postgres database, ready for further analysis.
