@@ -1,5 +1,10 @@
 # Web Data Extraction and Analysis to Predict NBA Playoff Outcomes
 
+## Project Architecture
+
+![project architecture](https://github.com/user-attachments/assets/2cd340b6-1a34-4467-8a38-cafdd7a8be65)
+
+
 ## Aim
 
 The aim of this project is to design and implement a data-driven system for extracting, storing, and analyzing historical NBA statistics to predict potential outcomes of the 2024-2025 NBA playoffs. Rather than employing machine learning, this project relies on comparative and statistical analysis of past seasons (2022-2023 and 2023-2024) to identify key performance patterns and trends that can guide predictive insights.
@@ -234,3 +239,34 @@ _Relationship Type:_ `One-to-One (or One-to-Few) per Season`
 _Relationship Type:_ `One-to-One (per Team per Season)`
 
 `Details:` Although these two tables provide different perspectives—the conference versus the division view—they both record standings for the same team and season. They can be joined on `Team, Year) to compare and analyze how a team’s performance holds across both its conference and its division.
+
+
+## Data Transformation
+
+This project utilizes Apache Spark for data transformation. The following steps outline the methodology used:
+
+### Step 1: Spark Session Creation
+A Spark session was created using the SparkSession.builder API, configuring the application name and other necessary settings.
+
+### Step 2: Schema Definition
+A predefined schema was defined using the ```StructType``` and ```StructField``` APIs, specifying the column names and data types.
+
+### Step 3: Data Loading
+The data was loaded into a Spark DataFrame using the ```spark.read``` API, specifying the data source and other necessary options.
+
+### Step 4: Applying Schema
+The predefined schema was applied to the loaded data using the spark.read.schema API, ensuring data consistency and correctness.
+
+### Step 5: Transformations
+The following transformations were applied to the data:
+
+- Renaming Columns: Column names were renamed using the ```.withColumnRenamed``` API to ensure clarity and consistency.
+- Handling Null Values: Null values in a specific column were filled with the ratio of two other columns that it is a result of, using the when and otherwise APIs.
+- Dropping Unnecessary Columns: A column that was not needed for further analysis was dropped using the drop API.
+- Filtering Unwanted Rows: Unwanted rows were filtered out using the filter API, ensuring data quality and relevance.
+
+### Step 6: Writing to Postgres
+The transformed data was written to a Postgres database using the ```write.jdbc(:postgresql://...)``` API, specifying the database connection properties and table name.
+
+### Step 7: Final Output
+The data is now stored in the Postgres database, ready for further analysis.
