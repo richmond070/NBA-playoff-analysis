@@ -16,3 +16,10 @@ sqlalchemy==1.4.54
 
 # Airflow extras (optional, makes Snowflake hooks/operators available)
 apache-airflow-providers-snowflake
+
+
+#dbt connectors
+astronomer-cosmos
+dbt-core
+dbt-snowflake
+
