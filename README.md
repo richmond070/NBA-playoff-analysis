@@ -251,4 +251,4 @@ NBA-playoff-analysis/
   
   - Automate CI/CD for dbt with GitHub Actions
   
-  - Visualize inPower BI with live Snowflake connection (Direct Connect)
+  - Visualize inPower BI with live Snowflake connection (Direct Connect).
