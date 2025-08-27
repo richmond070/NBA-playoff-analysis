@@ -24,11 +24,11 @@ Rather than employing machine learning, this project relies on comparative and s
 
 ### Original Design
 
-Data Storage: Postgres database
+- Data Storage: Postgres database
 
-Transformations: PySpark (ETL jobs run locally or in cluster mode)
+- Transformations: PySpark (ETL jobs run locally or in cluster mode)
 
-Workflow: Manual / script-based
+- Workflow: Manual / script-based
 
 ### Updated Stack
 
@@ -51,7 +51,7 @@ This update enables:
   Automated scraping + loading pipelines, Cloud-native, elastic scaling, CI/CD-friendly transformations, Clear separation of staging schema vs analytics schema
 
 ## Data Dictionary
-To assist the team in understanding the data the following definitions and brief descriptions for each data table are provided:
+To assist the team in understanding the data, the following definitions and brief descriptions for each data table are provided:
 
 1. ### Player Table
 - **Rk (Rank):** The player’s ranking position within the dataset based on sorting criteria.
@@ -245,13 +245,10 @@ NBA-playoff-analysis/
 
 ## Future Enhancements
 
-Add API-based scraping to reduce Selenium dependency
-
-Expand dbt models to include advanced metrics (PER, win shares)
-
-Automate CI/CD for dbt with GitHub Actions
-
-Visualize in Tableau or Power BI with live Snowflake connection
-
-
-Visualize in Tableau or Power BI with live Snowflake connection
+  - Add API-based scraping to reduce Selenium dependency
+  
+  - Expand dbt models to include advanced metrics (PER, win shares)
+  
+  - Automate CI/CD for dbt with GitHub Actions
+  
+  - Visualize inPower BI with live Snowflake connection (Direct Connect)
