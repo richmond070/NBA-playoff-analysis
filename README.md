@@ -55,59 +55,145 @@ CI/CD-friendly transformations
 Clear separation of staging schema vs analytics schema
 
 4. Data Dictionary
-Tables
+To assist the team in understanding the data the following definitions and brief descriptions for each data table are provided:
 
-games
+Player Table
+Rk (Rank): The player’s ranking position within the dataset based on sorting criteria.
 
-game_id: Unique identifier
+Player: The NBA athlete’s name.
 
-season: Season year
+Age: The player’s age during the season.
 
-date: Game date
+Team: The NBA team the player represents.
 
-home_team, away_team: Team identifiers
+Pos (Position): On-court role (e.g., Guard, Forward, Center).
 
-home_score, away_score: Points scored
+G (Games): Total games participated in.
 
-round: Playoff round
+GS (Games Started): Number of games where the player started.
 
-players
+MP (Minutes Played): Total minutes on court.
 
-player_id: Unique identifier
+FG (Field Goals Made): Shots made from the field (excluding free throws).
 
-team_id: Associated team
+FGA (Field Goal Attempts): Total field goal attempts.
 
-player_name: Full name
+FG% (Field Goal Percentage): Percentage of successful field goals.
 
-position: Role on team
+3P (Three-Point Field Goals Made): Successful three-point shots.
 
-stats
+3PA (Three-Point Field Goal Attempts): Total three-point attempts.
 
-stat_id: Unique identifier
+3P% (Three-Point Percentage): Success rate for three-point shots.
 
-game_id: Linked to games
+2P (Two-Point Field Goals Made): Successful two-point shots.
 
-player_id: Linked to players
+2PA (Two-Point Field Goal Attempts): Total two-point attempts.
 
-points, rebounds, assists, … : Performance metrics
+2P% (Two-Point Percentage): Success rate for two-point shots.
 
-5. Relational Model
+eFG% (Effective Field Goal Percentage): Shooting percentage that accounts for the extra value of three-point shots.
 
-Relationships:
+FT (Free Throws Made): Free throws successfully made.
 
-games ⟷ stats (via game_id)
+FTA (Free Throw Attempts): Total free throw attempts.
 
-players ⟷ stats (via player_id)
+FT% (Free Throw Percentage): Percentage of successful free throws.
 
-teams ⟷ players (via team_id)
+ORB (Offensive Rebounds): Rebounds collected on the offensive end.
 
-The model allows queries like:
+DRB (Defensive Rebounds): Rebounds collected on the defensive end.
 
-Player performance in specific games
+TRB (Total Rebounds): Combined offensive and defensive rebounds.
 
-Team aggregates across playoff rounds
+AST (Assists): Passes leading directly to a score by a teammate.
 
-Historical comparisons between seasons
+STL (Steals): Times the player took the ball away from the opposing team.
+
+BLK (Blocks): Successful deflections of opponent shot attempts.
+
+TOV (Turnovers): Times the player lost ball possession.
+
+PF (Personal Fouls): Fouls committed by the player.
+
+PTS (Points): Total points scored in the season.
+
+Awards: Awards or accolades received.
+
+Year: The season the statistics represent.
+
+Team Ratings Table
+Rk (Rank): The ranking position of the team.
+
+Team: The name of the NBA team.
+
+Conf (Conference): The conference in which the team competes (Eastern or Western).
+
+Div (Division): The division within the conference.
+
+W (Wins): Games won during the season.
+
+L (Losses): Games lost.
+
+W/L% (Winning Percentage): Wins divided by total games.
+
+MOV (Margin of Victory): Average point difference per game.
+
+ORtg (Offensive Rating): Points scored per 100 possessions.
+
+DRtg (Defensive Rating): Points allowed per 100 possessions.
+
+NRtg (Net Rating): Difference between offensive and defensive ratings.
+
+MOV/A (Adjusted Margin of Victory): Margin adjusted for opponent strength and other factors.
+
+ORtg/A (Adjusted Offensive Rating): Offensive rating refined by context factors.
+
+DRtg/A (Adjusted Defensive Rating): Defensive rating refined by context factors.
+
+NRtg/A (Adjusted Net Rating): Adjusted overall performance metric based on offense and defense.
+
+Year: The season associated with the ratings.
+
+Team Conference Standings Table
+W (Wins): Total conference wins.
+
+L (Losses): Total conference losses.
+
+W/L% (Winning Percentage): Win ratio based on conference games.
+
+GB (Games Behind): The number of games behind the conference leader.
+
+PS/G (Points Scored Per Game): Average points scored per game.
+
+PA/G (Points Allowed Per Game): Average points conceded per game.
+
+SRS (Simple Rating System): Cumulative metric combining point differential and strength of schedule.
+
+Year: The season or year of the standings.
+
+Team: The team’s name as listed in conference standings.
+
+Team Division Standings Table
+Rk (Rank): The division ranking of the team (if provided as the first column).
+
+W (Wins): Wins accumulated in division matchups.
+
+L (Losses): Losses incurred in division matchups.
+
+W/L% (Winning Percentage): Win ratio derived from division games.
+
+GB (Games Behind): Games behind the division leader.
+
+PS/G (Points Scored Per Game): Average points scored in division games.
+
+PA/G (Points Allowed Per Game): Average points conceded in division games.
+
+SRS (Simple Rating System): Metric combining the scoring margin and schedule strength for division games.
+
+Year: The season or year associated with these standings.
+
+Team: The team’s name from the division standings.
 
 6. Transformations
 Original Design (PySpark)
