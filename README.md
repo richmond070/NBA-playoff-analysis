@@ -1,5 +1,6 @@
-NBA Playoff Analysis Project
-1. Project Overview
+# NBA Playoff Analysis Project
+
+## Project Overview
 
 This project analyzes NBA playoff data, originally designed with Postgres + Spark for storage and transformations, and now updated to use Airflow + Snowflake + dbt for modern orchestration, warehousing, and analytics.
 
@@ -13,13 +14,13 @@ Apply business rules to enrich insights
 
 Provide structured data for downstream analysis and visualization
 
-2. Aim
+## Aim
 
 The aim of this project is to design and implement a data-driven system for extracting, storing, and analyzing historical NBA statistics to predict potential outcomes of the 2024–2025 NBA playoffs.
 
 Rather than employing machine learning, this project relies on comparative and statistical analysis of past seasons (2022–2023 and 2023–2024) to identify key performance patterns and trends that can guide predictive insights.
 
-3. Architecture Evolution
+## Architecture Evolution
 Original Design
 
 Data Storage: Postgres database
@@ -54,7 +55,7 @@ CI/CD-friendly transformations
 
 Clear separation of staging schema vs analytics schema
 
-4. Data Dictionary
+## Data Dictionary
 To assist the team in understanding the data the following definitions and brief descriptions for each data table are provided:
 
 Player Table
@@ -195,7 +196,7 @@ Year: The season or year associated with these standings.
 
 Team: The team’s name from the division standings.
 
-6. Transformations
+## Transformations
 Original Design (PySpark)
 
 Load raw CSVs into Spark DataFrames
@@ -220,8 +221,8 @@ dim_teams.sql, dim_players.sql → dimensions for analysis
 
 Analytics schema: Final dbt models materialized in Snowflake for BI tools.
 
-7. Workflow
-Original Workflow
+## Workflow
+### Original Workflow
 
 Manually run scraping script
 
@@ -243,7 +244,7 @@ dbt_test task: Validates models for data quality.
 
 Downstream analysis: BI / notebooks connect to Snowflake.
 
-8. Rules-Based Framework
+## Rules-Based Framework
 
 Transformation rules:
 
@@ -261,7 +262,7 @@ Identify top performers per round
 
 Derive team win/loss ratios
 
-9. Evaluation Metrics
+## Evaluation Metrics
 
 Data Quality
 
@@ -277,7 +278,7 @@ Query execution times in Snowflake
 
 Airflow DAG runtime efficiency
 
-10. Project Structure
+## Project Structure
 NBA-playoff-analysis/
 │
 ├── Airflow/
@@ -297,7 +298,7 @@ NBA-playoff-analysis/
 └── docs/
     └── README.md
 
-11. Future Enhancements
+## Future Enhancements
 
 Add API-based scraping to reduce Selenium dependency
 
