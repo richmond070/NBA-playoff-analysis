@@ -1,5 +1,7 @@
 # NBA Playoff Analysis Project
 
+<img width="1682" height="937" alt="architecture diagram" src="https://github.com/user-attachments/assets/57068240-710c-44bb-9b86-b2cee2de118d" />
+
 ## Project Overview
 
 This project analyzes NBA playoff data, originally designed with Postgres + Spark for storage and transformations, and now updated to use Airflow + Snowflake + dbt for modern orchestration, warehousing, and analytics.
