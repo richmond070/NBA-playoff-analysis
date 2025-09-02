@@ -1,6 +1,8 @@
 # NBA Playoff Analysis Project
 
-<img width="1682" height="937" alt="architecture diagram" src="https://github.com/user-attachments/assets/57068240-710c-44bb-9b86-b2cee2de118d" />
+<img width="1683" height="965" alt="architecture diagram" src="https://github.com/user-attachments/assets/b4d57fdc-45cc-4dee-8c2a-cff6d4968ddc" />
+
+
 
 ## Project Overview
 
