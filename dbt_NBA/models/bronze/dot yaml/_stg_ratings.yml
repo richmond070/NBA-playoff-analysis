@@ -3,36 +3,36 @@ models:
    description: "Raw data showing each team's ratings in the league"
    columns:
      - name: COL1
-        description: " "
+       description: " "
      - name: Rk
-        description: " "
+       description: " "
      - name: Team
-        description: " "
+       description: " "
      - name: Conf
-        description: " "
+       description: " "
      - name: Div
-        description: " "
+       description: " "
      - name: W
-        description: " "
+       description: " "
      - name: L
-        description: " "
+       description: " "
      - name: W_L_perc
-        description: " "
+       description: " "
      - name: MOV
-        description: " "
+       description: " "
      - name: ORtg
-        description: " "
+       description: " "
      - name: DRtg
-        description: " "
+       description: " "
      - name: NRtg
-        description: " "
+       description: " "
      - name: MOV_A
-        description: " "
+       description: " "
      - name: Ortg_A
-        description: " "
+       description: " "
      - name: DRtg_A
-        description: " "
+       description: " "
      - name: NRtg_A
-        description: " "
+       description: " "
      - name: Year
-        description: " "
+       description: " "

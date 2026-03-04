@@ -1,7 +1,0 @@
-models:
- - name: stg_players
-   description: "Raw data for players in the league"
-   columns:
-     - name: 
-        description: " "
-     - name: 

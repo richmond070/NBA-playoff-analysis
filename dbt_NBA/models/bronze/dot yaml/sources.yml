@@ -5,5 +5,5 @@ sources:
    description: 'This contains all raw data used in NBA playoffs analysis'
    tables:
     - name: ratings
-    - name: team_conf_standings
+    - name: teams_conf_standings
     - name: players
