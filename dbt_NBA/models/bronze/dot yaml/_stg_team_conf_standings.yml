@@ -2,6 +2,21 @@ models:
  - name: stg_team_conf_standings
    description: "Raw data showing each team standing in the conference league"
    columns:
-     - name: 
+     - name: COL1
         description: " "
-     - name: 
+     - name: W
+        description: " "
+     - name: L
+        description: " "
+     - name: W_L_perc
+        description: " "
+     - name: GB
+        description: " "
+     - name: PS_G
+        description: " "
+     - name: PA_G
+        description: " "
+     - name: SRS
+        description: " "
+     - name: YEAR
+        description: " "
