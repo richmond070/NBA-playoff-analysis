@@ -1,0 +1,7 @@
+models:
+ - name: stg_team_conf_standings
+   description: "Raw data showing each team standing in the conference league"
+   columns:
+     - name: 
+        description: " "
+     - name: 

@@ -1,0 +1,7 @@
+models:
+ - name: stg_ratings
+   description: "Raw data showing each team's ratings in the league"
+   columns:
+     - name: 
+        description: " "
+     - name: 
