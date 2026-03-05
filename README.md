@@ -39,17 +39,54 @@ NBA-playoff-analysis
     |───analysis report
     |     ├───NBA Project PowerBI report.pbix
     |     ├───NBA Project PowerBI report.pdf
-    |     ├───NBA Project Report.pdf
+    |     └───NBA Project Report.pdf
+    |
+    |───dbt_NBA
+    |     ├─── macros
+    |     ├─── models
+    |     |      ├─── bronze
+    |     |      |      ├─── dot sql
+    |     |      |      |      ├───stg_ratings.sql
+    |     |      |      |      ├───stg_teams_conf_standings.sql
+    |     |      |      |      └───stg_players.sql
+    |     |      |      | 
+    |     |      |      └─── dot yaml
+    |     |      |             ├─── _stg_ratings.yml
+    |     |      |             ├─── _stg_teams_conf_standings.yml
+    |     |      |             ├─── _stg_players.yml
+    |     |      |             └─── sources.yml
+    |     |      |      
+    |     |      └─── gold
+    |     |             ├─── dot sql 
+    |     |             |      ├─── team_ratings.sql
+    |     |             |      ├─── conference standing.sql
+    |     |             |      └─── nba_players.sql
+    |     |             | 
+    |     |             └─── dot yaml
+    |     |                    ├─── _team_ratings.yml
+    |     |                    ├─── _conference_standing.yml
+    |     |                    └─── _nba_players.yml
+    |     |                          
+    |     ├─── seeds
+    |     ├─── snapshots
+    |     ├─── tests
+    |     ├─── .gitignore
+    |     ├─── dbt_project.yml
+    |     ├─── packages.yml
+    |     └─── readme.md
+    |
     ├───raw data
     |      ├───players.csv
     |      ├───ratings.csv
     |      ├───teams_conf_standings.csv
     |      ├───teams_division_standings.csv
-    └───webscrapping scripts
-        ├───web snapshots
-        |   ├───player table
-        |   ├───team_ratings table
-        |   └───team_stats table
-        └───webscrapping.py
-
+    ├───webscrapping scripts
+    |      ├───web snapshots
+    |      |   ├───player table
+    |      |   ├───team_ratings table
+    |      |   └───team_stats table
+    |      └───webscrapping.py
+    ├───.gitignore
+    ├─── data dictionary.md
+    └─── README.md
 ```

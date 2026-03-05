@@ -76,15 +76,3 @@ To assist the team in understanding the data, the following definitions and brie
 \- \*\*Year:\*\* The season or year of the standings.  
 \- \*\*Team:\*\* The team’s name as listed in conference standings.
 
- 4\. **Team Division Standings Table**
-
-\- \*\*Rk (Rank):\*\* The division ranking of the team (if provided as the first column).  
-\- \*\*W (Wins):\*\* Wins accumulated in division matchups.  
-\- \*\*L (Losses):\*\* Losses incurred in division matchups.  
-\- \*\*W/L% (Winning Percentage):\*\* Win ratio derived from division games.  
-\- \*\*GB (Games Behind):\*\* Games behind the division leader.  
-\- \*\*PS/G (Points Scored Per Game):\*\* Average points scored in division games.  
-\- \*\*PA/G (Points Allowed Per Game):\*\* Average points conceded in division games.  
-\- \*\*SRS (Simple Rating System):\*\* Metric combining the scoring margin and schedule strength for division games.  
-\- \*\*Year:\*\* The season or year associated with these standings.  
-\- \*\*Team:\*\* The team’s name from the division standings.  

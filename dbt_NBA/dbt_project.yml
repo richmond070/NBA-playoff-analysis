@@ -19,7 +19,5 @@ models:
     # Materialize bronze and silver models as views, and gold as tables
     bronze:
       +materialized: view
-    silver:
-      +materialized: view
     gold:
       +materialized: table
