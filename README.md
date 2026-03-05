@@ -20,16 +20,16 @@ This project uses historical NBA data (2022–2024) scraped from web to analyze 
 
 - Webscrapping: Python
 
-- DataWarehouse: Snowflake
+- Data Warehouse: Snowflake
 
-- Transformations: DBT Cloud
+- Data Transformations: DBT core
 
 - Analysis and Visualization: PowerBI
 
 
 ## Data Dictionary
 
-For data dictionary see the [dictionary](/Dictionary.md)
+See [dictionary](/Dictionary.md)
 
 
 ## Project Structure
