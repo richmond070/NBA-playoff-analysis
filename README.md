@@ -40,7 +40,7 @@ The repository is organized into several directories that represent the differen
 
 - dbt_NBA/ contains the dbt project used for transforming raw data into analytics-ready datasets.
 
-- The models/ directory is organized into a Bronze–Gold architecture, where the Bronze layer contains staging models that clean and standardize raw data (stg_ratings.sql, stg_teams_conf_standings.sql, stg_players.sql), while the Gold layer contains final analytical models (team_ratings.sql, conference_standing.sql, nba_players.sql). 
+- models/ directory is organized into a Bronze–Gold architecture, where the Bronze layer contains staging models that clean and standardize raw data (stg_ratings.sql, stg_teams_conf_standings.sql, stg_players.sql), while the Gold layer contains final analytical models (team_ratings.sql, conference_standing.sql, nba_players.sql). 
 Each model has corresponding YAML files that define documentation, tests, and metadata.
 Other folders such as macros/, seeds/, snapshots/, and tests/ support reusable SQL logic, seed data loading, historical tracking, and data quality testing.
 
