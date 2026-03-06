@@ -1,0 +1,9 @@
+sources:
+ - name: NBA_Project  #consider as my custom or database name
+   database: analytics
+   schema: mart_raw
+   description: 'This contains all raw data used in NBA playoffs analysis'
+   tables:
+    - name: ratings
+    - name: teams_conf_standings
+    - name: players

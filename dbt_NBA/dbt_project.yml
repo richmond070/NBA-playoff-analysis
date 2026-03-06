@@ -1,0 +1,23 @@
+name: dbt_NBA
+
+profile: dbt_NBA
+
+seed-paths: ["seeds"]
+model-paths: ["models"]
+macro-paths: ["macros"]
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+seeds:
+  # Builds seeds into '<your_schema_name>_raw'
+  dbt_NBA:
+    +schema: raw
+
+models:
+  dbt_NBA:
+    # Materialize bronze and silver models as views, and gold as tables
+    bronze:
+      +materialized: view
+    gold:
+      +materialized: table
