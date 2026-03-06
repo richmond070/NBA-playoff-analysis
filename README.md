@@ -3,6 +3,7 @@
 
 - [Project Overview](#project-overview)
 - [Technologies](#technologies)
+- [Architecture Overview](#architecture-overview)
 - [Methodology](#methodology)
 - [Project Structure](#project-structure)
 - [Data Dictionary](#data-dictionary)
@@ -14,14 +15,51 @@ This project uses historical NBA data (2022–2024) scraped from web to analyze 
 
 ## Technologies
 
-- Webscrapping: Python
+The project uses the below stack:
 
-- Data Warehouse: Snowflake
+Data Collection
 
-- Data Transformations: DBT core
+- Python – Used for web scraping NBA statistics
+- Requests / Web Scraping Libraries – Extract structured data from online sources
 
-- Analysis and Visualization: PowerBI
+Data Transformation and Storage
 
+- dbt (Data Build Tool) – SQL-based transformation framework used to structure and test data models
+- Snowflake – Cloud data warehouse used to store and process transformed datasets
+
+Data Modeling
+
+- Bronze Layer – Raw staging models that clean and standardize incoming data
+- Gold Layer – Final analytical models used for reporting and insights
+
+Data Visualization
+
+- Power BI – Interactive dashboards and analytical reports built from the transformed datasets
+
+## Architecture Overview
+
+This project implements an end-to-end modern data pipeline that automates the process of collecting, transforming, and analyzing NBA statistics. The workflow follows these stages:
+
+### Data Collection
+Python web scraping scripts extract NBA statistics such as player performance, team ratings, and conference standings from web sources. The scraped data is stored locally as CSV files.
+
+### Raw Data Storage
+The extracted datasets (players.csv, ratings.csv, and team standings data) serve as the raw input layer for the analytics pipeline.
+
+### Data Transformation with dbt
+The raw data is loaded into Snowflake and transformed using dbt through a layered architecture:
+
+Bronze Layer (Staging Models)
+Cleans and standardizes raw datasets into structured staging tables.
+
+Gold Layer (Analytics Models)
+Produces curated datasets optimized for analysis, such as team ratings, conference standings, and player statistics.
+
+### Data Quality & Documentation
+dbt YAML files define tests, documentation, and metadata for each model, ensuring data quality and transparency.
+
+### Analytics & Visualization
+The final transformed datasets are connected directly to Power BI, where dashboards and reports are created to analyze NBA performance trends.
 
 ## Methodology
 
@@ -107,11 +145,14 @@ NBA-playoff-analysis
     |      |   ├───player table
     |      |   ├───team_ratings table
     |      |   └───team_stats table
-    |      └───webscrapping.py
+    |      └───webscrapping script.py
     ├───.gitignore
     ├─── data dictionary.md
     └─── README.md
 ```
+## Outcome
+
+
 ## Data Dictionary
 
 See [dictionary](/Dictionary.md)
