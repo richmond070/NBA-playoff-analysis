@@ -6,6 +6,7 @@
 - [Architecture Overview](#architecture-overview)
 - [Methodology](#methodology)
 - [Project Structure](#project-structure)
+- [Project Outcome](#project-outcome)
 - [Data Dictionary](#data-dictionary)
 
 ## Project Overview
@@ -38,24 +39,24 @@ Data Visualization
 
 ## Architecture Overview
 
-This project implements an end-to-end modern data pipeline that automates the process of collecting, transforming, and analyzing NBA statistics. The workflow follows these stages:
+The workflow follows these stages:
 
-1. Data Collection
+1. Data Collection:
 Python web scraping scripts extract NBA statistics such as player performance, team ratings, and conference standings from web sources. The scraped data is stored locally as CSV files.
 
-2. Raw Data Storage
+2. Raw Data Storage:
 The extracted datasets (players.csv, ratings.csv, and team standings data) serve as the raw input layer for the analytics pipeline.
 
-3. Data Transformation with dbt
+3. Data Transformation with dbt:
 The raw data is loaded into Snowflake and transformed using dbt through a layered architecture:
 
 - Bronze Layer (Staging Models) Cleans and standardizes raw datasets into structured staging tables.
 - Gold Layer (Analytics Models) Produces curated datasets optimized for analysis, such as team ratings, conference standings, and player statistics.
 
-4. Data Quality & Documentation
+4. Data Quality & Documentation:
 dbt YAML files define tests, documentation, and metadata for each model, ensuring data quality and transparency.
 
-5. Analytics & Visualization
+5. Analytics & Visualization:
 The final transformed datasets are connected directly to Power BI, where dashboards and reports are created to analyze NBA performance trends.
 
 ## Methodology
@@ -147,8 +148,28 @@ NBA-playoff-analysis
     ├─── data dictionary.md
     └─── README.md
 ```
-## Outcome
+## Project Outcome
+This project delivers a complete end-to-end NBA data analytics pipeline, transforming raw web-scraped basketball statistics into structured, analytics-ready datasets and interactive reports.
 
+The pipeline begins with Python web scraping scripts that extract NBA player statistics, team ratings, and conference standings from online sources. The scraped data is stored as raw CSV files and then ingested into the data pipeline.
+
+Using dbt (Data Build Tool) with Snowflake, the raw datasets are transformed through a layered data architecture:
+
+The Bronze layer performs initial staging and cleaning of the raw data, standardizing formats and preparing the datasets for analysis.
+
+The Gold layer produces curated analytical models that combine and structure the data into meaningful datasets such as team ratings, conference standings, and player performance metrics.
+
+These transformed datasets are then used to build an interactive Power BI dashboard, which enables exploration of NBA team performance, player statistics, and conference standings in a visual and intuitive format.
+
+The final deliverables include:
+
+A fully reproducible dbt transformation pipeline
+
+Clean analytical datasets stored in Snowflake
+
+A Power BI dashboard for visual analysis
+
+Supporting documentation including a data dictionary and project report
 
 ## Data Dictionary
 
