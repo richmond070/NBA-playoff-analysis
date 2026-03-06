@@ -49,16 +49,13 @@ The extracted datasets (players.csv, ratings.csv, and team standings data) serve
 3. Data Transformation with dbt
 The raw data is loaded into Snowflake and transformed using dbt through a layered architecture:
 
-Bronze Layer (Staging Models)
-Cleans and standardizes raw datasets into structured staging tables.
-
-Gold Layer (Analytics Models)
-Produces curated datasets optimized for analysis, such as team ratings, conference standings, and player statistics.
+- Bronze Layer (Staging Models) Cleans and standardizes raw datasets into structured staging tables.
+- Gold Layer (Analytics Models) Produces curated datasets optimized for analysis, such as team ratings, conference standings, and player statistics.
 
 4. Data Quality & Documentation
 dbt YAML files define tests, documentation, and metadata for each model, ensuring data quality and transparency.
 
-### Analytics & Visualization
+5. Analytics & Visualization
 The final transformed datasets are connected directly to Power BI, where dashboards and reports are created to analyze NBA performance trends.
 
 ## Methodology
