@@ -1,5 +1,11 @@
 # NBA Playoff Analysis Project
+## Navigation
 
+- [Project Overview](#project-overview)
+- [Technologies](#technologies)
+- [Methodology](#methodology)
+- [Project Structure](#project-structure)
+- [Data Dictionary](#data-dictionary)
 
 ## Project Overview
 
@@ -73,8 +79,7 @@ NBA-playoff-analysis
     |     |      |             ├─── _stg_ratings.yml
     |     |      |             ├─── _stg_teams_conf_standings.yml
     |     |      |             ├─── _stg_players.yml
-    |     |      |             └─── sources.yml
-    |     |      |      
+    |     |      |             └─── sources.yml      
     |     |      └─── gold
     |     |             ├─── dot sql 
     |     |             |      ├─── team_ratings.sql
@@ -84,8 +89,7 @@ NBA-playoff-analysis
     |     |             └─── dot yaml
     |     |                    ├─── _team_ratings.yml
     |     |                    ├─── _conference_standing.yml
-    |     |                    └─── _nba_players.yml
-    |     |                          
+    |     |                    └─── _nba_players.yml                          
     |     ├─── seeds
     |     ├─── snapshots
     |     ├─── tests
@@ -97,8 +101,7 @@ NBA-playoff-analysis
     ├───raw data
     |      ├───players.csv
     |      ├───ratings.csv
-    |      ├───teams_conf_standings.csv
-    |      ├───teams_division_standings.csv
+    |      └───teams_conf_standings.csv
     ├───webscrapping scripts
     |      ├───web snapshots
     |      |   ├───player table
