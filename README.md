@@ -61,7 +61,7 @@ The final transformed datasets are connected directly to Power BI, where dashboa
 
 ## Methodology
 
-Raw data is first scraped from the web using a Python library designed for extracting information from online sources. Once collected, these raw datasets are loaded directly into a Snowflake staging schema, where they are stored in their original or minimally processed form. 
+Raw data is first scraped from the web using a Python library designed for extracting information from online sources. Once collected, these raw datasets are loaded directly into a staging schema in snowflake, where they are stored in their original or minimally processed form. 
 From there, DBT (Data Build Tool) connects to the staging schema and applies a series of transformations such as cleaning, standardizing, and modeling the data. The transformed datasets are then loaded into a destination schema within Snowflake that is structured and optimized for analytical use.
 Finally, Power BI connects directly to this destination schema to perform data analysis and create interactive dashboards and visualizations for reporting and insights.
 
@@ -71,7 +71,7 @@ Finally, Power BI connects directly to this destination schema to perform data a
 
   players table.html        ─┐                                            
   team_ratings table.html   ─┼──>    [Raw]     ──>   [Mart]    ──>    Dashboard/Reports
-  team_stats table.html     ─┘     (Landing)         (Final)            (Output)
+  team_stats table.html     ─┘     (Staging)       (Analytics)            (Output)
 
 ```
 
@@ -151,7 +151,7 @@ NBA-playoff-analysis
 ## Project Outcome
 This project delivers a complete end-to-end NBA data analytics pipeline, transforming raw web-scraped basketball statistics into structured, analytics-ready datasets and interactive reports.
 
-The pipeline begins with Python web scraping scripts that extract NBA player statistics, team ratings, and conference standings from online sources. The scraped data is stored as raw CSV files and then ingested into the data pipeline.
+The pipeline begins with Python web scraping scripts that extract NBA player statistics, team ratings, and conference standings from online sources. The scraped data is stored as raw CSV files and then ingested into staging schema in snowflake.
 
 Using dbt (Data Build Tool) with Snowflake, the raw datasets are transformed through a layered data architecture:
 
@@ -163,13 +163,13 @@ These transformed datasets are then used to build an interactive Power BI dashbo
 
 The final deliverables include:
 
-A fully reproducible dbt transformation pipeline
+- A fully reproducible dbt transformation pipeline
 
-Clean analytical datasets stored in Snowflake
+- Clean analytical datasets stored in Snowflake
 
-A Power BI dashboard for visual analysis
+- A Power BI dashboard for visual analysis
 
-Supporting documentation including a data dictionary and project report
+- Supporting documentation including a data dictionary and project report
 
 ## Data Dictionary
 
